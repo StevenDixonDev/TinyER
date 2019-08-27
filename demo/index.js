@@ -23,19 +23,18 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/', (req, res)=>{
-  console.log(req.body);
-  //res.status(200).send("<h2>HELLO WORLD</h2>");
+
   res.status(200).send();
 });
 
 app.get('/test', (req, res)=>{
-  console.log(req.method);
+
   res.sendFile(__dirname + "/index.html");
 });
 
 app.get('/handlebar', (req, res)=>{
-  console.log(req.method);
-  res.render("test.handlebars", {body: "Hello Handlebars"})
+  
+  res.render("test.handlebars", {lay: false , t: "<p>sdfsadf</p>"});
 });
 
 
