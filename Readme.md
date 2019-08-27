@@ -23,9 +23,19 @@ app: serves as the starting point for express, normal use is app = express() whe
     - Put
         - allows response on Put request
     - Use 
-        - middleware - allows the user to define intermediary functions that run at defined routes or on all routes.
+        - allows the user to define intermediary functions that run at defined routes or on all routes.
+    - Set 
+        - allows the user to specify a rendering engine
+    - Engine
+        - the engine used for render
     - Response
         - is changed to add new functions that wrap http response object
+        - send - done
+        - status - done
+        - type - done
+        - set - done
+        - json - done
+        - sendFile - done
     - Request
         - is changed to add new functions that wrap http request object
 

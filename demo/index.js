@@ -1,7 +1,15 @@
 const tinyER = require('../lib');
 const bodyParser = require("body-parser");
+const exphbs  = require('express-handlebars');
+const path = require("path");
+
 // create application
 const app = tinyER();
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs());
+
 
 // set app to use middleware
 app.use(testMiddleWare);
@@ -23,6 +31,11 @@ app.post('/', (req, res)=>{
 app.get('/test', (req, res)=>{
   console.log(req.method);
   res.sendFile(__dirname + "/index.html");
+});
+
+app.get('/handlebar', (req, res)=>{
+  console.log(req.method);
+  res.render("test.handlebars", {body: "Hello Handlebars"})
 });
 
 
