@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/StevenDixonDev/TinyER/issues"
   },
-  "homepage": "https://github.com/StevenDixonDev/TinyER#readme"
+  "homepage": "https://github.com/StevenDixonDev/TinyER#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
 }
