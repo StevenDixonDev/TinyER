@@ -4,7 +4,8 @@
   "description": "This is an attempt to reconstruct some of the functionality of express.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "node demo/index"
   },
   "repository": {
     "type": "git",

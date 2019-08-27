@@ -17,14 +17,14 @@ app.use(bodyParser.json());
 
 // set simple route, currently regex not working
 app.get('/', (req, res)=>{
-  
   //res.status(200).send("<h2>HELLO WORLD</h2>");
   res.send("<p>Hello Server</p>");
 })
 
+// example of a post request
 app.post('/', (req, res)=>{
-
-  res.status(200).send();
+  console.log(req.body)
+  res.status(200).json(req.body);
 });
 
 app.get('/test', (req, res)=>{
@@ -34,7 +34,7 @@ app.get('/test', (req, res)=>{
 
 app.get('/handlebar', (req, res)=>{
   
-  res.render("test.handlebars", {lay: false , t: "<p>sdfsadf</p>"});
+  res.render("test", {lay: false , t: "<p>sdfsadf</p>"});
 });
 
 

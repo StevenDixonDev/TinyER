@@ -1,6 +1,6 @@
 # Tiny ER
 
-This is an attempt to reconstruct the functionality of express.js
+This is an attempt to reconstruct the functionality of express.js. I make no guaranty that this will work 100%.
 
 Trying to create a small version of something you are using is a great way to understand it.
 
@@ -25,7 +25,7 @@ app: serves as the starting point for express, normal use is app = express() whe
     - Use 
         - allows the user to define intermediary functions that run at defined routes or on all routes.
     - Set 
-        - allows the user to specify a rendering engine
+        - allows the user to specify settings for the app
     - Engine
         - the engine used for render
     - Response
@@ -38,14 +38,16 @@ app: serves as the starting point for express, normal use is app = express() whe
         - sendFile - done
     - Request
         - is changed to add new functions that wrap http request object
+        - app is added to request so it can be referenced.
 
 router (Not implemented)
 
     - Render
         - Allows the user to render views
+        - Implemented single engine rendering with express-handlebars
     - templates 
         - Allows use of template engines
 
 ## What I learned
 
-Express has a lot of stuff going on under the hood.
+Express has a lot of stuff going on under the hood. This was very complex and I can say that I am not sure how everything works.
