@@ -2,9 +2,20 @@ const tinyER = require('../lib');
 const bodyParser = require("body-parser");
 const exphbs  = require('express-handlebars');
 const path = require("path");
-
+const router = tinyER.Router();
 // create application
 const app = tinyER();
+ 
+router.get('/', function (req, res) {
+  console.log('test')
+  res.send('Birds home page')
+})
+
+//console.log(router.stack)
+
+app.use('/birds', router);
+
+//console.log(app._router.stack)
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');

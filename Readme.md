@@ -2,7 +2,7 @@
 
 This is an attempt to reconstruct some of the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is removed.
 
-> Trying to create a small version of something you are using is a great way to understand it.
+> "Trying to create a small version of something you are using is a great way to understand it."
 
 ## What does express do?
 
@@ -14,9 +14,9 @@ Express creates a router that pushes layers into a stack each layer has a route 
 
 ## The bits and pieces
 
-Dividing Express into parts should make it easier to replicate
+Dividing Express into parts should make it easier to replicate: (it did not)
 
-app: serves as the starting point for express, normal use is app = express() where express is a singleton that creates an app.
+app: serves as the starting point for express, normal use is app = express()
   
     - Get
         - allows response on get request
@@ -60,3 +60,8 @@ Express has a lot of stuff going on under the hood. This was very complex and I 
 
 I was able to implement a pseudo version of express however it was missing many of the functions of express. This attempt helped me under stand how express uses engines for rendering and how routes where propagated. 
 
+## Things that work and things that don't
+
+Simple routing, not including regex paths
+Middleware, examples work with body parser
+Rendering views with handlebars, currently the only engine implemented
