@@ -1,12 +1,16 @@
 # Tiny ER
 
-This is an attempt to reconstruct the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is removed.
+This is an attempt to reconstruct some of the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is removed.
 
 > Trying to create a small version of something you are using is a great way to understand it.
 
 ## What does express do?
 
 Express allows a user to create a server using node.js, In theory express wraps http and extends its functionality.
+
+## How does express work under the hood?
+
+Express creates a router that pushes layers into a stack each layer has a route attached to it, after a request passes through the layers it will finally be returned into the user defined code.
 
 ## The bits and pieces
 
