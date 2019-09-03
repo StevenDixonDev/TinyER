@@ -54,10 +54,5 @@ router (Not implemented)
 
 Express has a lot of stuff going on under the hood. This was very complex and I can say that I am not sure how everything works.
 
-#### First attempt
+I was able to implement a pseudo version of express however it was missing many of the functions of express. This attempt helped me under stand how express uses engines for rendering and how routes where propagated. 
 
-I was able to implement a psuedo version of express however it was missing many of the functions of express. This attempt helped me under stand how express uses engines for rendering and how routes where propagated. 
-
-#### Second attempt 
-
-Armed with new knowledge I set out to implement multiple routing...
