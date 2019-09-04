@@ -5,17 +5,17 @@ const path = require("path");
 const router = tinyER.Router();
 // create application
 const app = tinyER();
- 
+
+router.get('/hb', function(req, res) {
+  res.render('index', {message: 'I am a nested handlebar route'});
+});
+
 router.get('/', function (req, res) {
-  console.log('test')
   res.send('Birds home page')
-})
+});
 
-//console.log(router.stack)
 
-app.use('/birds', router);
 
-//console.log(app._router.stack)
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
@@ -23,16 +23,16 @@ app.engine('handlebars', exphbs());
 
 
 //set app to use middleware
-app.use(testMiddleWare);
+//app.use(testMiddleWare);
 app.use(bodyParser.json());
-
+app.use('/birds', router);
 
 
 // example of a post request
 app.post('/', (req, res)=>{
   console.log('test');
   console.log(req.body);
-  res.status(200).json(req.body);
+  res.status(200).json("thank you");
 });
 
 // set simple route, currently regex not working

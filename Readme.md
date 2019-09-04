@@ -16,7 +16,7 @@ Express creates a router that pushes layers into a stack each layer has a route 
 
 Dividing Express into parts should make it easier to replicate: (it did not)
 
-app: serves as the starting point for express, normal use is app = express()
+App: serves as the starting point for express, normal use is app = express()
   
     - Get
         - allows response on get request
@@ -46,13 +46,7 @@ app: serves as the starting point for express, normal use is app = express()
     - Request
         - is changed to add new functions that wrap http request object
         - app is added to request so it can be referenced.
-
-router (Not implemented)
-
-    - Route 
-        - Each path has its own route and each route has a stack of paths and functions
  
-
 
 ## What I learned
 
@@ -62,6 +56,9 @@ I was able to implement a pseudo version of express however it was missing many 
 
 ## Things that work and things that don't
 
-Simple routing, not including regex paths
-Middleware, examples work with body parser
-Rendering views with handlebars, currently the only engine implemented
+- [x] Simple routing, not including regex paths
+- [x] Routing using routes defined with Router
+- [x] Middleware, examples work with body parser
+- [x] Rendering views with handlebars, is currently the only engine implemented
+- [ ] .all for routes implemented
+- [ ] redirect
