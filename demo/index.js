@@ -12,7 +12,7 @@ router.get('/hb', function(req, res) {
 });
 
 router.get('/', function (req, res) {
-  res.send('Birds home page')
+  res.send('Birds home page');
 });
 
 
@@ -24,7 +24,7 @@ app.engine('handlebars', exphbs());
 
 
 //set app to use middleware
-//app.use(testMiddleWare);
+app.use(testMiddleWare);
 app.use(bodyParser.json());
 app.use('/birds', router);
 
@@ -42,8 +42,12 @@ app.get('/', (req, res)=>{
   res.send("<p>Hello Server</p>");
 })
 
-app.get('/test', (req, res)=>{
+app.get('/t', (req, res)=>{
+  //res.status(200).send("<h2>HELLO WORLD</h2>");
+  res.redirect('/test');
+})
 
+app.get('/test', (req, res)=>{
   res.sendFile(__dirname + "/index.html");
 });
 
@@ -51,8 +55,6 @@ app.get('/handlebar', (req, res)=>{
   
   res.render("test", {lay: false , t: "<p>Hi I am a handlebars demo</p>"});
 });
-
-
 
 // tell the app to  listen on port 8080
 app.listen(8080, ()=>{

@@ -61,4 +61,8 @@ I was able to implement a pseudo version of express however it was missing many 
 - [x] Middleware, examples work with body parser
 - [x] Rendering views with handlebars, is currently the only engine implemented
 - [ ] .all for routes implemented
-- [ ] redirect
+- [x] redirect
+- [x] Regex on routes
+- [ ] params and query 
+
+Check the demo to see all the implemented functionality
