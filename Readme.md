@@ -1,6 +1,6 @@
 # Tiny ER
 
-This is an attempt to reconstruct some of the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is removed.
+This is an attempt to reconstruct some of the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is not implemented.
 
 > "Trying to create a small version of something you are using is a great way to understand it."
 
@@ -18,20 +18,15 @@ Dividing Express into parts should make it easier to replicate: (it did not)
 
 App: serves as the starting point for express, normal use is app = express()
   
-    - Get
-        - allows response on get request
-    - Post
-        - allow response on Post request
-    - Delete
-        - allows response on Delete request
-    - Put
-        - allows response on Put request
+    - HTTP methods (get, post, put, delete) all allow attaching handlers for their specific requests
     - Use 
         - allows the user to define intermediary functions that run at defined routes or on all routes.
     - Set 
         - allows the user to specify settings for the app
     - Engine
         - sets the engine used for render
+    - Render
+        - uses view engine to create html view, usually used for html emails
     - Response
         - is changed to add new functions that wrap http response object
         - send - done
@@ -40,7 +35,7 @@ App: serves as the starting point for express, normal use is app = express()
         - set - done
         - json - done
         - sendFile - done
-        - Render
+        - Render - done
             - Allows the user to render views
             - Implemented single engine rendering with express-handlebars
     - Request
@@ -59,10 +54,13 @@ I was able to implement a pseudo version of express however it was missing many 
 - [x] Simple routing, not including regex paths
 - [x] Routing using routes defined with Router
 - [x] Middleware, examples work with body parser
-- [x] Rendering views with handlebars, is currently the only engine implemented
-- [ ] .all for routes implemented
+- [x] Rendering views with handlebars (currently the only engine implemented)
 - [x] redirect
 - [x] Regex on routes
-- [ ] params and query 
+- [x] params and query
+- [ ] set the static directory for public files 
+- [ ] option requests
+- [ ] .all for routes implemented
+- [ ] proper error handling
 
 Check the demo to see all the implemented functionality
