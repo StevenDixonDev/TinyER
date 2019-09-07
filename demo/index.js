@@ -44,12 +44,26 @@ app.post('/', (req, res)=>{
 
 // set simple route, currently regex not working
 app.get('/', (req, res)=>{
-  res.render("index", {lay: false , t: "<p>Hi I am a handlebars demo</p>"});
+  res.render("index", {home: req.url});
 })
 
-app.get('/re/:name/', (req, res)=>{
-  console.log(req.params.name, 'test')
-})
+// optional parameters and queries
+app.get('/Routing/:name?', (req, res) =>{
+  res.render("route" , {routing: req.url, name: req.params.name});
+});
+
+app.get('/Middleware', (req, res) =>{
+  res.render("middleware", {middle: req.url});
+});
+
+app.get('/Rendering', (req, res) =>{
+  res.render("render", {render: req.url});
+});
+
+// use a different layout with handlebars
+app.get('/test', (req, res) =>{
+  res.render('index', { title: 'my other page', layout: 'second' });
+});
 
 
 
