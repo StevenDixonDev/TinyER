@@ -1,6 +1,6 @@
 # Tiny ER
 
-This is an attempt to reconstruct some of the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is not implemented.
+This is an attempt to reconstruct some of the functionality of express.js. I make no guaranty that this will work 100%. I also am not trying to make a 1 to 1 replica of express so some functionality is not implemented. I have named the project Tiny ER which stands for Tiny Express Router
 
 > "Trying to create a small version of something you are using is a great way to understand it."
 
@@ -51,11 +51,11 @@ I was able to implement a pseudo version of express however it was missing many 
 
 ## Things that work and things that don't
 
-- [x] Simple routing, not including regex paths
+- [x] Simple routing
 - [x] Routing using routes defined with Router
 - [x] Middleware, examples work with body parser
 - [x] Rendering views with handlebars (currently the only engine implemented)
-- [x] redirect
+- [x] redirect function and redirect on * path
 - [x] Regex on routes
 - [x] params and query
 - [ ] set the static directory for public files 

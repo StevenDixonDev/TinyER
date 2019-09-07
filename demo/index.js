@@ -31,10 +31,10 @@ app.engine('handlebars', exphbs());
 //set app to use middleware
 app.use(testMiddleWare);
 app.use(bodyParser.json());
+app.use(static(__dirname + '/public'));
 
 // tell app to use the router created above
 app.use('/birds', router);
-
 
 // example of a post request
 app.post('/', (req, res)=>{
@@ -44,29 +44,33 @@ app.post('/', (req, res)=>{
 
 // set simple route, currently regex not working
 app.get('/', (req, res)=>{
-  console.log(req.query)
-  res.send("<p>Hello Server</p>");
+  res.render("index", {lay: false , t: "<p>Hi I am a handlebars demo</p>"});
 })
 
 app.get('/re/:name/', (req, res)=>{
-  console.log(req.params.name)
-  res.send("<p>name</p>");
+  console.log(req.params.name, 'test')
 })
 
-// redirect example
-app.get('/t', (req, res)=>{
-  res.redirect('/test');
-})
 
-// sendfile example
-app.get('/test', (req, res)=>{
-  res.sendFile(__dirname + "/index.html");
-});
+
+// // sendfile example
+// app.get('/test', (req, res)=>{
+//   res.sendFile(__dirname + "/index.html");
+// });
+
+// // redirect example
+// app.get('/t', (req, res)=>{
+//   res.redirect('/test');
+// })
 
 // handle bars example
 app.get('/handlebar', (req, res)=>{  
   res.render("test", {lay: false , t: "<p>Hi I am a handlebars demo</p>"});
 });
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+})
 
 // tell the app to  listen on port 8080
 app.listen(8080, ()=>{
