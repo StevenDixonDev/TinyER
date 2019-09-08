@@ -2,10 +2,11 @@
   "name": "tinyer",
   "version": "1.0.0",
   "description": "This is an attempt to reconstruct some of the functionality of express.js",
-  "main": "index.js",
+  "main": "demo/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "demo": "nodemon demo/index"
+    "demo": "nodemon demo/index",
+    "start": "node demo/index.js"
   },
   "repository": {
     "type": "git",
