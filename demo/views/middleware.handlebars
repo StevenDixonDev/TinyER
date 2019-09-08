@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-sm-8 mt-3">
+        <h3>Middleware</h3>
+        <p>Middleware is the second largest part of what Express does. Middleware allows the developer to define
+            functions that Express
+            calls on routes usually before the http routes are called. Express does have some built in Middleware but
+            these are not present in Tiny ER, so in order to use them they must be install via a package manager.
+        </p>
+        <p>Some Middleware have been tested and are working properly on Tiny ER. These include:</p>
+        <ul class="list-group">
+            <li class="list-group-item">body-parser</li>
+            <li class="list-group-item">express-handlebars</li>
+            <li class="list-group-item">serve-static</li>
+        </ul>
+        <br />
+        <h4>Testing body-parser</h4>
+        <p>This form will post to the current route and the body-parser middleware will format the request and send it
+            back. Try it out.</p>
+        <form class="border rounded p-2">
+            <div class="form-group">
+                <input value="Hello Sir" class="form-control" id="u-input"></input>
+            </div>
+            <button class="btn btn-success" id="sub">Submit</button>
+            <div id="result"></div>
+        </form>
+        <h3 class="mt-3">Testing serve-static</h3>
+        <p>Currently this page is using serve static to grab a css file from the server.</p>
+        <p class="red">This sentence should be red if serve static is working.</p>
+    </div>
+
+    <script>
+        $("#sub").on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "/Middleware",
+                type: "POST",
+                data: JSON.stringify({ "name": $("#u-input").val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).then((data, err) => {
+                $("#result").html(`
+                <div class="alert alert-success mt-2" role="alert">
+                    The server says: ${data.name}, I will have to think about that. 
+                </div>`);
+            })
+        });
+    </script>
+
+</div>

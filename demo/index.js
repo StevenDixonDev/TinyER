@@ -10,16 +10,6 @@ const router = tinyER.Router();
 const app = tinyER();
 
 
-// tell router to use get path
-router.get('/hb', function(req, res) {
-  res.render('index', {message: 'I am a nested handlebar route'});
-});
-
-// tell router to use get path
-router.get('/', function (req, res) {
-  res.send('Birds home page');
-});
-
 // set views location
 app.set('views', path.join(__dirname, 'views'));
 // set view engine name
@@ -32,9 +22,6 @@ app.engine('handlebars', exphbs());
 app.use(testMiddleWare);
 app.use(bodyParser.json());
 app.use(static(__dirname + '/public'));
-
-// tell app to use the router created above
-app.use('/birds', router);
 
 // example of a post request
 app.post('/', (req, res)=>{
@@ -49,11 +36,17 @@ app.get('/', (req, res)=>{
 
 // optional parameters and queries
 app.get('/Routing/:name?', (req, res) =>{
-  res.render("route" , {routing: req.url, name: req.params.name});
+  let query = Object.keys(req.query).map(key => `${key}: ${req.query[key]}`);
+  res.render("route" , {routing: req.url, params: req.params.name, query});
 });
 
 app.get('/Middleware', (req, res) =>{
   res.render("middleware", {middle: req.url});
+});
+
+app.post('/Middleware', (req, res) =>{
+  console.log(req.body)
+  res.json(req.body);
 });
 
 app.get('/Rendering', (req, res) =>{

@@ -1,1 +1,64 @@
-{{ name }}
+<div class="row justify-content-center">
+    <div class="col-sm-8 mt-3">
+        <h3>Routing</h3>
+        <hr />
+        <p>The largest part of what Express does is routing. Express acts as a wrapper around node's built in http module
+            and provides and easy way for a developer to create routes and serve content.
+            Tiny ER has most of the functionality of Express's core routing implemented. Everything that is needed to
+            create a simple application is fully functional.</p>
+        <h3>Routes</h3>
+        <hr />
+        <p>Routes are the most important functionality of express. These routes specified by the developer, and express
+            handles targeting http methods and modifying the Response and Request Objects.</p>
+        <p>Here is an example of a simple route</p>
+        <code>
+            app.get('/', (req, res)=>{
+                res.send('Hello World');
+            })
+        </code>
+        <p/>
+        <h3>Params</h3>
+        <hr />
+        <p>In express developers are able to specify that part of a routes path is used as a parameter by specifying with :.
+            This parameter can be flagged as optional by using a ?.</p>
+        <p>Here is an example of what a normal route using params looks like:</p>
+        <code>
+            app.get('/Routing/:name?', (req, res) =>{
+            res.render("route" , {name: req.params.name});
+            });
+        </code>
+        <p class="mt-1">You can see this in action by adding a path to this pages url or <a href="/Routing/HelloParam">clicking here</a>.</p>
+        {{#if params}}
+        <div class="alert alert-success" role="alert">
+            Oh? It looks like you added a Parameter to the url! The parameter you added is: {{params}}!
+        </div>
+        {{/if}}
+        <h3>Queries</h3>
+        <hr />
+        <p>Queries are not something created by Express as they are innate in HTTP requests, Express does to the leg work of adding
+            the queries as an object onto the request object.
+        </p>
+        <code>
+            app.get('/', (req, res)=>{
+                console.log(req.query);
+                res.send('Hello World');
+            })
+        </code>
+        <p class="mt-1">You can test this out by add a ? followed by the query onto this pages url or <a href="/Routing?myquery=helloquery">clicking here</a>.</p>
+        {{#if query}}
+        <div class="alert alert-success" role="alert">
+            <p>Oh? It looks like you added a Query to the url! The query you added is:</p>
+            </hr>
+            {{#query}}
+                <p>query => {{.}}</p>
+            {{/query}}
+        </div>
+        {{/if}}
+        <h3>Sub Routes</h3>
+        <hr/>
+        <p>Sub routes allow a developer to modularize their routing code. This can be quite complex and was the most difficult part of designing Tiny ER.</p>
+        <p>The worst part is that it is underwhelming in demonstrations. This is because any given route could be a nested route but from the front end the users will never know.</p>
+        <p></p>
+        <p>If you want a good example of setting this up check out <a target="_Blank" href="https://gist.github.com/zcaceres/f38b208a492e4dcd45f487638eff716c">this link</a></p>
+    </div>
+</div>
