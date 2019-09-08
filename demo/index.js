@@ -35,7 +35,10 @@ app.post('/', (req, res)=>{
 });
 
 // set simple route, currently regex not working
-app.get('/', (req, res)=>{
+app.all('/', (req, res, next)=>{
+  console.log('all');
+  next();
+}).get('/', (req, res)=>{
   res.render("index", {home: req.url});
 })
 

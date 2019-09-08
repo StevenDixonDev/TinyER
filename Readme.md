@@ -58,8 +58,9 @@ I was able to implement a pseudo version of express however it was missing many 
 - [x] redirect function and redirect on * path
 - [x] Regex on routes
 - [x] params and query
-- [ ] set the static directory for public files 
+- [x] set the static directory for public files
 - [ ] option requests
+- [x] .all for App implemented
 - [ ] .all for routes implemented
 - [ ] proper error handling
 
